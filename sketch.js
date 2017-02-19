@@ -1,8 +1,8 @@
 //Sabrina Oliver
 //so6299@bard.edu
-//feb 9 2017
-//I worked alone on this assignment with assistance from http://www.w3schools.com/colors/colors_picker.asp for picking colors.
-//reflection: I wanted to created an avatar that looked like me but very simplistic. Looking back, I guess I was a bit inspired by the look of animal crossing characters. I wanted the focus to be on the face so it has a basic body. To make it more lively I added highlights in the eyes. And I could have given it arms, but I really hate circle hands so I decided not to. As for technical things, there was definitely a lot of math involved to make sure the resulting image had matching sides, so I experimented a bit with that.
+//feb 19 2017
+//I worked alone on this assignment
+//reflection: I wanted this new avatar to feel more trippy and surreal. The original was very basic and lifelike and I wanted to change the mood of it. There's the background dots that continually change color and transparancy(static animation),the eyes that change color(static animation), and the ellipses that follow your mouse; changing into rectangles when the mouse is clicked(dynamic). The new variables we learned and if/else statements took a bit of getting used to, but definitely with more practice it will become easier.
 
 
 function setup() {
@@ -11,7 +11,24 @@ function setup() {
 }
 
 function draw() {
+//background dots
+   for (var y=20; y<= height -20; y+=10){
+       for (var x=20; x<= width-20; x+=10){
+           fill(random(255),random(255),random(255),random(150));
+           ellipse(x,y,4,4);
+           line(x,y,250,250);
+       }
+   }
     
+  //random ellipse
+    
+  if (mouseIsPressed){
+   fill(random(255),random(255),random(255),random(255));
+      rect(mouseX, mouseY, random(10,150),random(10,150));
+  }  else{
+    fill(random(255),random(255),random(255),random(150));
+    ellipse(mouseX, mouseY, random(5,80),random(5,80));
+  }
 //hair top
     fill(37,26,14);
     ellipse(250,220,240,300);
@@ -51,11 +68,10 @@ function draw() {
     strokeWeight(1);
     ellipse(300,190,48,35);
  //left eye color
-    fill(77,40,0);
+    fill(random(255),random(255),random(255));
     strokeWeight(0);
     ellipse(200,190,35,35);
 //right eye color
-    fill(77,40,0);
     strokeWeight(0);
     ellipse(300,190,35,35);
 //left eye pupil
@@ -77,7 +93,7 @@ function draw() {
     arc(250,260,50,30,0,PI);
 //nose
     fill(204,153,102);
-    triangle(250,195,260,240,240,240);
+    triangle(250,195,260,240,240,240,);
 
     
     
